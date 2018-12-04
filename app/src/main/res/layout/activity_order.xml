@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.shoppingcart.activity.OrderActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/font_green">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/back_white_btn"/>
+        <TextView
+            android:layout_marginRight="30dp"
+            android:textColor="@color/font_white"
+            android:gravity="center"
+            android:text="提交订单"
+            android:textSize="22sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/ll_address"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@color/gray1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center"
+            android:src="@drawable/home_location_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="15dp"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收货人：张三"/>
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="电话：123456789"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收货地址：66666664dwdjafasjdsabfjfjajdnajnwdamkdajsdjkasdjasd"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center"
+            android:src="@drawable/enter_gray_small_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
+    </LinearLayout>
+    <com.zszx.b2c.view.MyExpandaleListView
+        android:layout_weight="1"
+        android:id="@+id/elv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.zszx.b2c.view.MyExpandaleListView>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+            android:layout_weight="1"
+            android:textColor="@color/font_black"
+            android:text="配送方式"
+            android:textSize="14sp"
+            android:gravity="center|left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+            <TextView
+                android:textColor="@color/gray_price"
+                android:text="快递 ：  ￥20"
+                android:textSize="13sp"
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/enter_gray_small_btn"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_weight="1"
+                android:textColor="@color/font_black"
+                android:text="优惠卷"
+                android:textSize="14sp"
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <TextView
+                android:textColor="@color/gray_price"
+                android:text="- ￥20"
+                android:textSize="13sp"
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/enter_gray_small_btn"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/login_weixin_btn"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+            <TextView
+
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:textColor="@color/font_black"
+                android:text="微信支付"
+                android:textSize="16sp"
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <CheckBox
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/login_weibo_btn"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+            <TextView
+
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:textColor="@color/font_black"
+                android:text="支付宝支付"
+                android:textSize="16sp"
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <CheckBox
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_weight="1"
+            android:textColor="@color/font_black"
+            android:text="合计"
+            android:textSize="14sp"
+            android:gravity="center|right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:textColor="@color/red_price"
+            android:text="￥288.88"
+            android:textSize="14sp"
+            android:gravity="center|right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:textColor="@color/gray_price"
+            android:text="￥288.88"
+            android:textSize="10sp"
+            android:gravity="center|right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/bt_pay"
+            android:layout_marginLeft="5dp"
+            android:text="支付"
+            android:background="@drawable/shap_bt_red"
+            android:textColor="@color/font_white"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

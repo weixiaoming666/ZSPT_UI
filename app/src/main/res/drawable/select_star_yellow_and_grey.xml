@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--stow-actvie_btn_d_  stow-actvie_btn_n.png-->
+    <item android:drawable="@drawable/stow_actvie_btn_d" android:state_checked="false"></item>
+    <item android:drawable="@drawable/stow_actvie_btn_n" android:state_checked="true"></item>
+</selector>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:scrollbars="none"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="80dp"
+            android:id="@+id/lv"
+            android:dividerHeight="3dp"
+            android:layout_width="259dp"
+            android:layout_height="247dp"
+            android:background="@drawable/kiji_hongbao_bg"/>
+        <ImageView
+            android:layout_width="262dp"
+            android:layout_height="102dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/kaiji_hongbao_toubu_bg"/>
+        <ImageView
+            android:layout_gravity="bottom"
+            android:layout_width="259dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/keji_hongbao_dibu"/>
+        <ImageView
+            android:layout_gravity="right"
+            android:id="@+id/iv_cancel"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/shopping_guige_guanbi_btn"/>
+    </FrameLayout>
+
+</LinearLayout>

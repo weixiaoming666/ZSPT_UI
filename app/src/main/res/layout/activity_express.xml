@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mine.ExpressActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/font_green">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_gravity="center"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/back_white_btn"/>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_marginRight="30dp"
+            android:textColor="@color/font_white"
+            android:gravity="center"
+            android:text="物流跟踪"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_state_order"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="70dp"
+            android:layout_height="70dp">
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_shangpin_xiao_pic"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_name"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ff222222"
+                android:lines="1"
+                android:text="中华老字号 北京稻香村老北京糕点礼盒北京特产小"/>
+            <View
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="left"
+                    android:id="@+id/tv_price_and_num"
+                    android:textColor="@color/font_black"
+                    android:textSize="14sp"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:text="圆通快递：12341243242"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 快递路径-->
+    <LinearLayout
+      android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="left|center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_gravity="left"
+                android:textSize="10sp"
+                android:text="已经货"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.zszx.b2c.view.CircleImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@color/font_green"/>
+                <View
+                    android:background="@color/font_green"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+            </LinearLayout>
+            <TextView
+                android:textColor="@color/font_black"
+                android:layout_gravity="left"
+                android:textSize="14sp"
+                android:text="北京"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_gravity="left"
+                android:textSize="10sp"
+                android:text="已经货"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.zszx.b2c.view.CircleImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@color/font_green"/>
+                <View
+                    android:background="@color/font_green"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_gravity="left"
+                android:textSize="10sp"
+                android:text="已经货"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.zszx.b2c.view.CircleImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@color/font_green"/>
+                <View
+                    android:background="@color/gray_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_gravity="left"
+                android:textSize="10sp"
+                android:text="已经货"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.zszx.b2c.view.CircleImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@color/gray_price"/>
+            </LinearLayout>
+
+            <TextView
+                android:textColor="@color/font_black"
+                android:layout_gravity="left"
+                android:textSize="14sp"
+                android:text="上海"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/lv"
+        android:divider="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+</LinearLayout>

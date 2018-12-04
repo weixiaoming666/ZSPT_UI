@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mine.RefundActivityTwoActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/font_green">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_gravity="center"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/back_white_btn"/>
+        <TextView
+            android:layout_marginRight="30dp"
+            android:textColor="@color/font_white"
+            android:gravity="center"
+            android:text="退款/退货"
+            android:textSize="22sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!--说明-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+        <TextView
+            android:padding="5dp"
+            android:text="退款/退货说明"
+            android:textColor="@color/font_black"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et"
+            android:padding="5dp"
+            android:gravity="left"
+            android:textSize="13sp"
+            android:background="@drawable/edittext_normal"
+            android:layout_width="match_parent"
+            android:hint="输入您对商品的评价"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <!--上传照片-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="5dp"
+            android:text="上传照片"
+            android:textColor="@color/font_black"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:background="@drawable/user_pingjia_tianjia_btn"></ImageView>
+    </LinearLayout>
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="退款/退货"
+            />
+        <RadioButton
+            android:id="@+id/rb_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="换货"
+            />
+    </RadioGroup>
+    <View
+        android:layout_weight="1"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_gravity="bottom"
+        android:id="@+id/tv_refund"
+        android:background="@color/font_green"
+        android:textColor="@color/white"
+        android:text="提交申请"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50sp" />
+</LinearLayout>

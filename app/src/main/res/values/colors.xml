@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="font_white">#FFFFFF</color>
+    <color name="font_gray">#CCCCCC</color>
+    <color name="font_gray2">#555555</color>
+    <color name="line_gray">#999999</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="calendar_active_month_bg">#fff5f7f9</color>
+    <color name="calendar_bg">#ffffffff</color>
+    <color name="calendar_divider">#ffbababa</color>
+    <color name="calendar_inactive_month_bg">#ffd7d9db</color>
+    <color name="calendar_selected_day_bg">#ffc00c0d</color>
+    <color name="calendar_selected_day_bg2">#ff77be3c</color>
+    <color name="calendar_selected_range_bg">#ff96caff</color>
+    <color name="calendar_text_inactive">#40778088</color>
+    <color name="calendar_text_active">#ff778088</color>
+    <color name="calendar_text_selected">#ffffffff</color>
+    <color name="calendar_text_unselectable">#7f778088</color>
+    <color name="calendar_text_mark">#ff77be3c</color>
+    <color name="color_43a6e5">#43a6e5</color>
+    <color name="color_e64041">#e64041</color>
+    <color name="font_blue_5f9cf9">#5f9cf9</color>
+    <color name="red">#e64041</color>
+    <color name="yellow">#f5ee25</color>
+    <color name="yellow1">#b3ad1c</color>
+    <color name="black_title_font">#222222</color>
+    <color name="font_black">#222222</color>
+    <color name="red_price">#FF3B30</color>
+    <color name="gray_price">#999999</color>
+    <color name="black_select">#040000</color>
+    <color name="font_green">#64A532</color>
+
+    <color name="gray1">#cccccc</color>
+    <color name="gray2">#efefef</color>
+
+</resources>

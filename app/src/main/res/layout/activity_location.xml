@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.location.LocationActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/font_white"
+        android:elevation="3dp"
+        >
+        <ImageView
+            android:id="@+id/pic_contact_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/back"
+            android:padding="18dp"
+            />
+        <TextView
+            android:layout_marginRight="50dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="定位"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/font_black"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <me.yokeyword.indexablerv.IndexableLayout
+        android:id="@+id/indexableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        app:indexBar_selectedTextColor="@color/font_black"
+         app:indexBar_textColor="@color/font_green"
+         app:indexBar_layout_width="40dp"
+          app:indexBar_textSize="14sp"
+         app:indexBar_textSpace="5dp" />
+    <!--app:indexBar_selectedTextColor="@color/black"  //右侧导航选中时的颜色-->
+    <!--app:indexBar_textColor="@color/gray1"   //右侧导航字体颜色-->
+    <!--app:indexBar_layout_width="40dp"        //右侧导航的宽度-->
+    <!--app:indexBar_textSize="14sp"         //右侧导航的字体大小-->
+
+</LinearLayout>

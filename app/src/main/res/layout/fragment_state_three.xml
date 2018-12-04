@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="63dp">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_width="23dp"
+            android:layout_height="16dp"
+            android:background="@drawable/order_kuaidi_xinxi_ic"/>
+        <LinearLayout
+            android:id="@+id/ll_kuaidi"
+            android:layout_marginLeft="10sp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_address"
+                android:textSize="10sp"
+                android:text="【石家庄】快件以签收，感谢您使用XX快递"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_time"
+                android:textSize="10sp"
+                android:text="18/11/03 12:00"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_width="23dp"
+            android:layout_height="16dp"
+            android:background="@drawable/enter_gray_small_btn"/>
+    </LinearLayout>
+    <ExpandableListView
+        android:id="@+id/elv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:gravity="center"
+        android:text="待收货"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button
+    android:id="@+id/bt"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/shape_search_item"
+    android:text="热门搜索"
+    android:textColor="@color/font_black"
+    android:textStyle="bold"
+    android:textSize="13sp"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+</Button>

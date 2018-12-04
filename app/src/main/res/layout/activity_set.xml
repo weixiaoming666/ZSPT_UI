@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mine.SetActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/font_green">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/back_white_btn"/>
+        <TextView
+            android:layout_marginRight="30dp"
+            android:textColor="@color/font_white"
+            android:gravity="center"
+            android:text="设置"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!--收货地址-->
+    <LinearLayout
+        android:id="@+id/ll_address"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="收货地址管理"
+            android:textColor="@color/font_black"
+            android:textStyle="bold"
+            android:gravity="center|left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="10dp"
+            android:layout_height="18dp"
+            android:background="@drawable/enter_gray_small_btn"/>
+    </LinearLayout>
+    <!--个人资料-->
+    <LinearLayout
+        android:id="@+id/ll_people_details"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="个人资料"
+            android:textColor="@color/font_black"
+            android:textStyle="bold"
+            android:gravity="center|left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="10dp"
+            android:layout_height="18dp"
+            android:background="@drawable/enter_gray_small_btn"/>
+    </LinearLayout>
+    <!--手机号更改-->
+    <LinearLayout
+    android:id="@+id/ll_phone"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="40dp">
+    <TextView
+        android:layout_weight="1"
+        android:text="手机号更改"
+        android:textColor="@color/font_black"
+        android:textStyle="bold"
+        android:gravity="center|left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="10dp"
+            android:layout_height="18dp"
+            android:background="@drawable/enter_gray_small_btn"/>
+</LinearLayout>
+    <!--消息推送-->
+    <LinearLayout
+    android:id="@+id/ll_message_push"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="40dp">
+    <TextView
+        android:layout_weight="1"
+        android:text="消息推送"
+        android:textColor="@color/font_black"
+        android:textStyle="bold"
+        android:gravity="center|left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switch_compat"
+            android:typeface="normal"
+            android:switchMinWidth="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>
+    <!--清理缓存-->
+    <LinearLayout
+    android:id="@+id/ll_del_cache"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="40dp">
+    <TextView
+        android:layout_weight="1"
+        android:text="清理缓存"
+        android:textColor="@color/font_black"
+        android:textStyle="bold"
+        android:gravity="center|left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+        <TextView
+            android:text="30 M "
+            android:textColor="@color/font_gray2"
+            android:textStyle="bold"
+            android:gravity="center|left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="10dp"
+        android:layout_height="18dp"
+        android:background="@drawable/enter_gray_small_btn"/>
+</LinearLayout>
+    <!--去评价-->
+    <LinearLayout
+    android:id="@+id/ll_appraise"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="40dp">
+    <TextView
+        android:layout_weight="1"
+        android:text="去评价"
+        android:textColor="@color/font_black"
+        android:textStyle="bold"
+        android:gravity="center|left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="10dp"
+        android:layout_height="18dp"
+        android:background="@drawable/enter_gray_small_btn"/>
+</LinearLayout>
+    <!--关于我们-->
+    <LinearLayout
+    android:id="@+id/ll_about_our"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="40dp">
+    <TextView
+        android:layout_weight="1"
+        android:text="关于我们"
+        android:textColor="@color/font_black"
+        android:textStyle="bold"
+        android:gravity="center|left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="10dp"
+        android:layout_height="18dp"
+        android:background="@drawable/enter_gray_small_btn"/>
+</LinearLayout>
+    <!--联系我们-->
+    <LinearLayout
+    android:id="@+id/ll_call_me"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="40dp">
+    <TextView
+        android:layout_weight="1"
+        android:text="联系我们"
+        android:textColor="@color/font_black"
+        android:textStyle="bold"
+        android:gravity="center|left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="10dp"
+        android:layout_height="18dp"
+        android:background="@drawable/enter_gray_small_btn"/>
+</LinearLayout>
+    <TextView
+       android:textSize="11sp"
+        android:text="当前版本号：1.0.0"
+        android:textColor="@color/font_green"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <View
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/bt_back"
+        android:background="@color/font_green"
+        android:textColor="@color/white"
+        android:layout_gravity="bottom"
+        android:textSize="15sp"
+        android:text="退出当前账号"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+</LinearLayout>
