@@ -31,12 +31,12 @@ public abstract class MyCallBack<T>  extends RequestCallBack<String>{
             JSONObject json = new JSONObject(responseInfo.result);
             String str1 = json.toString();
             String str11 = json.toString();
-            String str = json.getString("errcode");
+            String str = json.getString("code");
             String msg = json.getString("msg");
-            if (str.equals("200")){
+            if (str.equals("1")){
                 t = (T) JsonUtils.ToGson(responseInfo.result,persistentClass);
             }else {
-                onMyFail(null,str+msg);
+                onMyFail(null,msg);
             }
         } catch (JSONException e) {
             e.printStackTrace();

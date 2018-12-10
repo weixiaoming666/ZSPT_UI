@@ -16,6 +16,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
+import com.zszx.b2c.entity.duanxin.SendEntity;
+import com.zszx.b2c.net.ContractNet;
+import com.zszx.b2c.net.MyCallBack;
+import com.zszx.b2c.utils.ToastUtil;
 import com.zszx.b2c.wxapi.WXEntryActivity;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -31,12 +37,13 @@ public class LoginActivity extends AppCompatActivity {
     private ImageView iv_log_weixin;
     private ImageView iv_log_qq;
     private ImageView iv_log_weibo;
-
+    private Context mContext;
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mContext = this;
         if (Build.VERSION.SDK_INT >= 21) {
              getWindow().setStatusBarColor(getColor(R.color.calendar_selected_day_bg2));
         }
@@ -48,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         bt_get_num.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                send();//发送短信
                 Toast.makeText(LoginActivity.this,"获取验证码为：123456",Toast.LENGTH_SHORT).show();
             }
         });
@@ -80,7 +88,9 @@ public class LoginActivity extends AppCompatActivity {
         iv_log_weixin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginToWeiXin();
+                Toast.makeText(LoginActivity.this,"微信登录ing",Toast.LENGTH_SHORT).show();
+
+//                loginToWeiXin();
 
             }
         });
@@ -99,6 +109,41 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void send() {
+        RequestParams params = new RequestParams();
+        params.addQueryStringParameter("mobile",et_phone.getText().toString());
+        ContractNet.INSTANCE.send(params, new MyCallBack<SendEntity>() {
+            @Override
+            public void onMySucess(SendEntity sendEntity) {
+                ToastUtil.showShort(mContext,"验证码已发送，请填写验证码");
+            }
+            @Override
+            public void onMyFail(HttpException e, String s) {
+                ToastUtil.showShort(mContext,s);
+            }
+        },this);
+    }
+
+    private void check() {
+        RequestParams params = new RequestParams();
+        params.addQueryStringParameter("mobile",et_phone.getText().toString());
+        if (et_numnber.getText() != null && !et_numnber.getText().toString().isEmpty()){
+            params.addQueryStringParameter("captcha",et_numnber.getText().toString());
+        }else {
+            ToastUtil.showShort(mContext,"请输入验证码");
+        }
+        ContractNet.INSTANCE.check(params, new MyCallBack<SendEntity>() {
+            @Override
+            public void onMySucess(SendEntity sendEntity) {
+//                验证码成功
+            }
+            @Override
+            public void onMyFail(HttpException e, String s) {
+                ToastUtil.showShort(mContext,s);
+            }
+        },this);
     }
 
 
