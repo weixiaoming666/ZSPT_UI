@@ -19,27 +19,27 @@ import com.zszx.b2c.ui.my.ProductDetailsActivity;
 import java.util.List;
 
 /**
- * Created by wxm on 2018/11/14.
- * 限时优惠
+ * Created by wxm on 2018/12/14.
+ * 新品上架
  */
-public class FoodDiscountsAdapter  extends MyBaseAdapter {
+public class XinpinFoodAdapter extends MyBaseAdapter {
     LayoutInflater inflater;
     private Context context;
-    List<HomeEntity.DataBean.PromotionBean> datas;
-    public FoodDiscountsAdapter( Context context) {
+    List<HomeEntity.DataBean.NewprojectBean> datas;
+    public XinpinFoodAdapter( Context context) {
 
         this.context = context;
         inflater = LayoutInflater.from(context);
 
     }
-    public FoodDiscountsAdapter(Context context, List<HomeEntity.DataBean.PromotionBean> promotion) {
+    public XinpinFoodAdapter(Context context, List<HomeEntity.DataBean.NewprojectBean> promotion) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         datas = promotion;
     }
     @Override
     public View getContenView(int i, View view, ViewGroup viewGroup) {
-       ViewHolder holder;
+        ViewHolder holder;
         if (view == null){
             view = inflater.inflate(R.layout.item_food_discount,null);
             holder = new ViewHolder(view);
@@ -57,6 +57,7 @@ public class FoodDiscountsAdapter  extends MyBaseAdapter {
             }else {
                 holder.tv_full.setVisibility(View.GONE);
             }
+
             Glide.with(context).load(ConstantUtils.base_url_host+datas.get(i).image).into(holder.iv_back);
         }
         view.setOnClickListener(new View.OnClickListener() {
@@ -100,4 +101,5 @@ public class FoodDiscountsAdapter  extends MyBaseAdapter {
         }
     }
 }
+
 

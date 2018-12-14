@@ -11,6 +11,7 @@
         android:layout_width="170dp"
         android:layout_height="170dp">
         <ImageView
+            android:id="@+id/iv_back"
             android:layout_width="170dp"
             android:layout_height="170dp"
             android:scaleType="fitXY"
@@ -26,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/tv_name"
             android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/tv_price_discount"
                 android:textSize="18sp"
                 android:textColor="@color/red_price"
                 android:padding="5dp"
@@ -46,7 +49,8 @@
                 android:lines="1"
                 android:text="¥288.88"/>
             <TextView
-                android:id="@+id/tv_parce2"
+
+                android:id="@+id/tv_price_market"
                 android:textSize="12sp"
                 android:textColor="@color/gray_price"
                 android:padding="5dp"
@@ -59,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/tv_full"
                 android:textSize="11sp"
                 android:layout_gravity="bottom"
                 android:background="@drawable/shap_bt_red"

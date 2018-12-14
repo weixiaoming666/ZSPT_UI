@@ -1,6 +1,7 @@
 package com.zszx.b2c.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,23 +14,28 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerListener;
 import com.zszx.b2c.R;
 import com.zszx.b2c.base.BaseFragment;
+import com.zszx.b2c.entity.home.HomeEntity;
+import com.zszx.b2c.net.ConstantUtils;
+import com.zszx.b2c.net.ContractNet;
+import com.zszx.b2c.net.MyCallBack;
 import com.zszx.b2c.ui.home.acyivity.SearchActivity;
 import com.zszx.b2c.ui.home.adapter.FoodBuyShowAdapter;
 import com.zszx.b2c.ui.home.adapter.FoodDiscountsAdapter;
 import com.zszx.b2c.ui.home.adapter.GVadapter;
 import com.zszx.b2c.ui.home.adapter.SpecialAdapter;
+import com.zszx.b2c.ui.home.adapter.XinpinFoodAdapter;
 import com.zszx.b2c.ui.home.util.GlideImageLoader;
 import com.zszx.b2c.ui.location.LocationActivity;
 import com.zszx.b2c.ui.news.NewShowListActivity;
 import com.zszx.b2c.utils.ToastUtil;
 import com.zszx.b2c.view.MyGradView;
-import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.listener.OnBannerListener;
-
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,6 +49,10 @@ import java.util.List;
 public class HomePageFragment extends BaseFragment {
     View view;
     List<String> title = new ArrayList<>()  ;
+    List<String> images_banner = new ArrayList<>()  ;
+    List<String> titles_banner = new ArrayList<>()  ;
+    List<String> news_title_banner = new ArrayList<>()  ;
+    List<Integer> news_image_banner = new ArrayList<>()  ;
     private  Integer[] imgs     = {R.drawable.home_bnnenr_pic, R.drawable.home_bnnenr_pic, R.drawable.home_bnnenr_pic};
     private  String[]  titles   = {"666", "777", "888"};
     private  String[]  names_gv = {"进口食品", "休闲食品", "新鲜水果", "粮油调味", "鲜虾海鲜", "精选肉类", "蔬菜蛋类", "其它分类"};
@@ -64,19 +74,60 @@ public class HomePageFragment extends BaseFragment {
     private int          TO_LOCATION = 88;
     private LinearLayout ll_store;
     private LinearLayout ll_store_index;
+    private Context mContext;
 
-
+    public List<HomeEntity.DataBean.BannerBean> bannerBeans;//新闻咨询
+    public List<HomeEntity.DataBean.NewsBean> news;//新闻咨询
+    public List<HomeEntity.DataBean.TransverseBean> transverse;// 通栏
+    public List<HomeEntity.DataBean.RecommendBean> recommend;//首页推荐位一
+    public List<HomeEntity.DataBean.ShopBean> shop;//特色店铺
+    public List<HomeEntity.DataBean.CategoytBean> categoyt;//分类
+    public List<HomeEntity.DataBean.HotprojectBean> hotproject;//热卖
+    public List<HomeEntity.DataBean.PromotionBean> promotion;//优惠
+    public List<HomeEntity.DataBean.NewprojectBean> newproject;//新品
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         if (view == null) {
             view = inflater.inflate(R.layout.activity_zszx_main, container, false);
+            mContext = getActivity();
             bindView(view);
-            initBinner();
             setCallback();
         }
+        net();
         return view;
+    }
+
+    private void net() {
+        netIndex();
+    }
+
+    private void netIndex() {
+        RequestParams params = new RequestParams();
+        ContractNet.INSTANCE.home_index(params, new MyCallBack<HomeEntity>() {
+            @Override
+                public void onMySucess(HomeEntity sendEntity) {
+                showData(sendEntity.data);
+            }
+            @Override
+            public void onMyFail(HttpException e, String s) {
+                ToastUtil.showShort(mContext,s);
+            }
+        },mContext);
+    }
+
+    private void showData(HomeEntity.DataBean data) {
+        bannerBeans = data.banner;//新闻咨询
+         news = data.news;//新闻咨询
+        transverse =data.transverse;// 通栏
+        recommend = data.recommend;//首页推荐位一
+        shop= data.shop;//特色店铺
+        categoyt = data.categoyt;//分类
+        hotproject = data.hotproject;//热卖
+        promotion = data.promotion;//优惠
+        newproject = data.newproject;//新品
+        initBinner();
     }
 
     private void setCallback() {
@@ -149,13 +200,21 @@ public class HomePageFragment extends BaseFragment {
         });
     }
     private void initBinner() {
+        titles_banner.clear();
+        for (int i = 0; i <bannerBeans.size() ; i++) {
+            titles_banner.add(bannerBeans.get(i).title);
+        }
         title.addAll(Arrays.asList(titles));
         //设置banner样式
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         //设置图片集合
         banner.setBannerStyle(BannerConfig.NUM_INDICATOR);
-        banner.setImages(Arrays.asList(imgs));
+        images_banner.clear();
+        for (int i = 0; i <bannerBeans.size() ; i++) {
+            images_banner.add( ConstantUtils.base_url_host+bannerBeans.get(i).image);
+        }
+        banner.setImages(images_banner);
         //设置banner动画效果
         banner.setBannerAnimation(com.youth.banner.Transformer.DepthPage);
 
@@ -169,15 +228,22 @@ public class HomePageFragment extends BaseFragment {
         banner.setIndicatorGravity(BannerConfig.CENTER);
         //banner设置方法全部调用完毕时最后调用
         banner.start();
-
+        news_title_banner.clear();
+        for (int i = 0; i <news.size() ; i++) {
+            news_title_banner.add(news.get(i).name);
+        }
+        news_image_banner.clear();
+        for (int i = 0; i <news.size() ; i++) {
+            news_image_banner.add(R.drawable.bg_white);
+        }
         banner_title.setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE);
         banner_title.setImageLoader(new GlideImageLoader());
         banner_title.setBannerAnimation(com.youth.banner.Transformer.DepthPage);
         banner_title.isAutoPlay(true);
         banner_title.setDelayTime(1500);
         banner_title.setIndicatorGravity(BannerConfig.RIGHT);
-        banner_title.setImages(Arrays.asList(imgs_gv1));
-        banner_title.setBannerTitles(Arrays.asList(names_gv));
+        banner_title.setImages(news_image_banner);
+        banner_title.setBannerTitles(news_title_banner);
         banner_title.start();
         banner_title.setOnBannerListener(new OnBannerListener() {
             @Override
@@ -186,12 +252,11 @@ public class HomePageFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), NewShowListActivity.class));
             }
         });
-
         gv.setAdapter(new GVadapter(Arrays.asList(names_gv), Arrays.asList(imgs_gv),context));
-        mlv_rm.setAdapter(new FoodBuyShowAdapter(context));
-        gv_xsyh.setAdapter(new FoodDiscountsAdapter(context));
+        mlv_rm.setAdapter(new FoodBuyShowAdapter(context,hotproject));//热卖
         mlv_ts.setAdapter(new SpecialAdapter(context));
-        gv_xpsj.setAdapter(new FoodDiscountsAdapter(context));
+        gv_xsyh.setAdapter(new FoodDiscountsAdapter(context,promotion));//限时优惠
+        gv_xpsj.setAdapter(new XinpinFoodAdapter(context,newproject));
 
     }
 

@@ -2,13 +2,11 @@ package com.zszx.b2c;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +15,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-
 import com.zszx.b2c.ui.CartFragment;
 import com.zszx.b2c.ui.ClassifyFragment;
 import com.zszx.b2c.ui.HomePageFragment;
@@ -25,7 +22,6 @@ import com.zszx.b2c.ui.MineFragment;
 import com.zszx.b2c.ui.StoreFragment;
 import com.zszx.b2c.ui.home.adapter.FragmentAdapter;
 import com.zszx.b2c.view.RedPacketDialog;
-
 
 import java.util.ArrayList;
 import java.util.List;

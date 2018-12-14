@@ -9,8 +9,10 @@ public class ConstantUtils{
 //        会员接口
 //        发送验证码 /api/sms/send
         public static String send             = base_url_host + "/api/sms/send";
-//        检测验证码  /api/sms/check
-        public static String check             = base_url_host + "/api/sms/check";
+//        验证码登录  /api/sms/check
+        public static String check             = base_url_host + "/api/user/mobilelogin";//
+    //   获取首页数据  /api/index/index POST
+        public static String home_index             = base_url_host + "/api/index/index";
 
 
 

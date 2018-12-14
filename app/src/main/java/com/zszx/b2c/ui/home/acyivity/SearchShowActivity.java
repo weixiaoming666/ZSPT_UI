@@ -5,7 +5,6 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 import com.zszx.b2c.R;
 import com.zszx.b2c.ui.home.adapter.FoodBuyShowAdapter;
 import com.zszx.b2c.ui.home.adapter.FoodConsultAdapter;
-import com.zszx.b2c.ui.home.adapter.FoodDiscountsAdapter;
 import com.zszx.b2c.ui.home.adapter.SpecialAdapter;
 import com.zszx.b2c.view.MyGradView;
 

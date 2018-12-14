@@ -1,13 +1,13 @@
 package com.zszx.b2c;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -18,14 +18,16 @@ import android.widget.Toast;
 
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.RequestParams;
-import com.zszx.b2c.entity.duanxin.SendEntity;
-import com.zszx.b2c.net.ContractNet;
-import com.zszx.b2c.net.MyCallBack;
-import com.zszx.b2c.utils.ToastUtil;
-import com.zszx.b2c.wxapi.WXEntryActivity;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.zszx.b2c.entity.duanxin.SendEntity;
+import com.zszx.b2c.entity.loginSuccessEntity;
+import com.zszx.b2c.net.ContractNet;
+import com.zszx.b2c.net.MyCallBack;
+import com.zszx.b2c.utils.SpUtill;
+import com.zszx.b2c.utils.ToastUtil;
+import com.zszx.b2c.wxapi.WXEntryActivity;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -38,6 +40,19 @@ public class LoginActivity extends AppCompatActivity {
     private ImageView iv_log_qq;
     private ImageView iv_log_weibo;
     private Context mContext;
+    CountDownTimer timer = new CountDownTimer(60000, 1000) {
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            bt_get_num.setText(millisUntilFinished/1000 + "秒");
+        }
+
+        @Override
+        public void onFinish() {
+            bt_get_num.setEnabled(true);
+            bt_get_num.setText("发送验证码");
+        }
+    };
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,22 +79,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                if (TextUtils.isEmpty(et_phone.getText())){
-                    Toast.makeText(LoginActivity.this,"请输入电话号码",Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (TextUtils.isEmpty(et_numnber.getText())){
-                    Toast.makeText(LoginActivity.this,"请输入验证码",Toast.LENGTH_SHORT).show();
-                    return;
-                }else {
-                    if (et_numnber.getText().toString().equals("123456")){
-                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                        Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
-                        finish();
-                    }else {
-                        Toast.makeText(LoginActivity.this,"验证码错误",Toast.LENGTH_SHORT).show();
-                    }
-                }
+//                if (TextUtils.isEmpty(et_phone.getText())){
+//                    Toast.makeText(LoginActivity.this,"请输入电话号码",Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if (TextUtils.isEmpty(et_numnber.getText())){
+//                    Toast.makeText(LoginActivity.this,"请输入验证码",Toast.LENGTH_SHORT).show();
+//                    return;
+//                }else {
+//                    check();
+//                }
 
 
             }
@@ -111,12 +120,16 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
     private void send() {
         RequestParams params = new RequestParams();
         params.addQueryStringParameter("mobile",et_phone.getText().toString());
+        params.addQueryStringParameter("event","login");
         ContractNet.INSTANCE.send(params, new MyCallBack<SendEntity>() {
             @Override
             public void onMySucess(SendEntity sendEntity) {
+                bt_get_num.setEnabled(false);
+                timer.start();
                 ToastUtil.showShort(mContext,"验证码已发送，请填写验证码");
             }
             @Override
@@ -127,6 +140,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void check() {
+        final Dialog dialog = ToastUtil.createProgressDialog(mContext,"正在登陆");
+        dialog.show();
         RequestParams params = new RequestParams();
         params.addQueryStringParameter("mobile",et_phone.getText().toString());
         if (et_numnber.getText() != null && !et_numnber.getText().toString().isEmpty()){
@@ -134,13 +149,28 @@ public class LoginActivity extends AppCompatActivity {
         }else {
             ToastUtil.showShort(mContext,"请输入验证码");
         }
-        ContractNet.INSTANCE.check(params, new MyCallBack<SendEntity>() {
+        ContractNet.INSTANCE.check(params, new MyCallBack<loginSuccessEntity>() {
             @Override
-            public void onMySucess(SendEntity sendEntity) {
+            public void onMySucess(loginSuccessEntity successEntity) {
+                dialog.dismiss();
+                if (successEntity.code== 1){
+                    loginSuccessEntity.DataBean.UserinfoBean userinfo =  successEntity.data.userinfo;
+                    SpUtill.getInstance(mContext).save(SpUtill.USER_ID,userinfo.user_id);
+                    SpUtill.getInstance(mContext).save(SpUtill.USER_NAME,userinfo.username);
+                    SpUtill.getInstance(mContext).save(SpUtill.MOBILE,userinfo.mobile);
+                    SpUtill.getInstance(mContext).save(SpUtill.SCORE,userinfo.score);
+                    SpUtill.getInstance(mContext).save(SpUtill.TOKEN,userinfo.token);
+                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                    Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
+                    finish();
+                }else {
+                    Toast.makeText(LoginActivity.this,"验证码错误",Toast.LENGTH_SHORT).show();
+                }
 //                验证码成功
             }
             @Override
             public void onMyFail(HttpException e, String s) {
+                dialog.dismiss();
                 ToastUtil.showShort(mContext,s);
             }
         },this);
@@ -208,6 +238,8 @@ public class LoginActivity extends AppCompatActivity {
         return false;
     }
 
+
+
     private void loginToWeiXin(){
         IWXAPI mApi = WXAPIFactory.createWXAPI(this, WXEntryActivity.WEIXIN_APP_ID, true);
         mApi.registerApp(WXEntryActivity.WEIXIN_APP_ID);
@@ -220,5 +252,11 @@ public class LoginActivity extends AppCompatActivity {
             mApi.sendReq(req);
         } else
             Toast.makeText(this, "用户未安装微信", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
     }
 }

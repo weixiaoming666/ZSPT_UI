@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
+            android:id="@+id/iv_home_store_bg"
             android:background="@drawable/home_store_bg"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
@@ -31,11 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/iv_icon"
                 android:layout_width="55dp"
                 android:layout_height="35dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/home_store_logo_logo_ic"/>
                 <TextView
+                    android:id="@+id/tv_name"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
                     android:textSize="18sp"
@@ -44,12 +47,14 @@
                     android:layout_height="wrap_content"
                     android:text="北京烤鸭全聚德旗舰店"/>
             <TextView
+                android:id="@+id/tv_num_select"
                 android:textSize="12sp"
                 android:textColor="@color/font_white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="9.9万人收藏"/>
             <TextView
+                android:id="@+id/tv_shop"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,6 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="1dp"/>
         <android.support.v7.widget.CardView
+            android:id="@+id/card_1"
             app:cardCornerRadius="5dp"
             android:elevation="20dp"
             android:padding="5dp"
@@ -84,11 +90,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
+                    android:id="@+id/iv_item_1"
                     android:background="@drawable/home_store_shangpin_pic"
                     android:layout_width="80dp"
                     android:layout_height="60dp" />
 
                 <TextView
+                    android:id="@+id/tv_item_name_1"
                     android:textColor="@color/font_black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -101,6 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        android:id="@+id/tv_item_price_red_1"
                         android:textSize="11sp"
                         android:textColor="@color/red"
                         android:layout_width="wrap_content"
@@ -109,7 +118,7 @@
                         android:text="$ 666"/>
                     <TextView
                         android:textSize="10sp"
-                        android:id="@+id/tv_parce1"
+                        android:id="@+id/tv_item_price_gray_1"
                         android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -123,6 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="1dp"/>
         <android.support.v7.widget.CardView
+            android:id="@+id/card_2"
             app:cardCornerRadius="5dp"
             android:elevation="20dp"
             android:padding="5dp"
@@ -134,10 +144,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
+                    android:id="@+id/iv_item_2"
                     android:background="@drawable/home_store_shangpin_pic"
                     android:layout_width="80dp"
                     android:layout_height="60dp" />/>
                 <TextView
+                    android:id="@+id/tv_item_name_2"
                     android:textColor="@color/font_black"
                     android:padding="2dp"
                     android:layout_width="match_parent"
@@ -150,6 +162,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        android:id="@+id/tv_item_price_red_2"
                         android:textSize="11sp"
                         android:textColor="@color/red"
                         android:layout_width="wrap_content"
@@ -157,8 +170,8 @@
                         android:lines="1"
                         android:text="$ 666"/>
                     <TextView
+                        android:id="@+id/tv_item_price_gray_2"
                         android:textSize="10sp"
-                        android:id="@+id/tv_parce2"
                         android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -172,6 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="1dp"/>
         <android.support.v7.widget.CardView
+            android:id="@+id/card_3"
             app:cardCornerRadius="5dp"
             android:elevation="20dp"
             android:padding="5dp"
@@ -183,10 +197,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
+                    android:id="@+id/iv_item_3"
                     android:background="@drawable/home_store_shangpin_pic"
                     android:layout_width="80dp"
                     android:layout_height="60dp" />
                 <TextView
+                    android:id="@+id/tv_item_name_3"
                     android:textColor="@color/font_black"
                     android:padding="2dp"
                     android:layout_width="match_parent"
@@ -199,6 +215,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
+                        android:id="@+id/tv_item_price_red_3"
                         android:textSize="11sp"
                         android:textColor="@color/red"
                         android:layout_width="wrap_content"
@@ -206,8 +223,8 @@
                         android:lines="1"
                         android:text="$ 666"/>
                     <TextView
+                        android:id="@+id/tv_item_price_gray_3"
                         android:textSize="10sp"
-                        android:id="@+id/tv_parce3"
                         android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
