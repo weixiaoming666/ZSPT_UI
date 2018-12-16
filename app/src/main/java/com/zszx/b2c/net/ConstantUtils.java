@@ -14,6 +14,9 @@ public class ConstantUtils{
     //   获取首页数据  /api/index/index POST
         public static String home_index             = base_url_host + "/api/index/index";
 
+        //   获取首页分类数据  /api/project/projectCategory POST
+        public static String home_projectCategory            = base_url_host + "/api/project/projectCategory";
+
 
 
 //        会员中心

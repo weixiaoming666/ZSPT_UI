@@ -52,7 +52,8 @@
             <!--android:src="@drawable/shap_bt_bg_green" />-->
 
             <ImageView
-                android:layout_marginLeft="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_gravity="center"
                 android:layout_width="20dp"
                 android:layout_height="19dp"
@@ -60,6 +61,7 @@
                 android:src="@drawable/home_information_btn"/>
 
             <TextView
+
                 android:background="@drawable/circle_red"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
@@ -120,19 +122,64 @@
                     android:background="@color/font_white">
                     <ImageView
                         android:layout_gravity="left|center"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:scaleType="centerCrop"
                         android:background="@drawable/home_news_ic"
                         />
-                    <com.youth.banner.Banner
-                        android:layout_gravity="center"
-                        android:background="@color/font_white"
-                        android:id="@+id/banner_title"
-                        android:layout_weight="1"
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        app:image_scale_type="fit_xy"/>
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_marginLeft="12dp"
+                                android:id="@+id/new_1"
+                                android:lines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1111111111"/>
+                            <TextView
+                                android:layout_marginRight="12dp"
+                                android:id="@+id/new_time_1"
+                                android:lines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12/24"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_marginLeft="12dp"
+                                android:id="@+id/new_2"
+                                android:lines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1111111111"/>
+                            <TextView
+                                android:layout_marginRight="12dp"
+                                android:id="@+id/new_time_2"
+                                android:lines="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12/24"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <!--<com.youth.banner.Banner-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:background="@color/font_white"-->
+                        <!--android:id="@+id/banner_title"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="25dp"-->
+                        <!--app:image_scale_type="fit_xy"/>-->
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/ll_store"
@@ -140,11 +187,13 @@
                     android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:background="@drawable/home_area_benner_4_pic"
+                        android:id="@+id/transverse_1"
                         android:layout_width="match_parent"
                         android:layout_height="110dp"
-                        />
+                        android:scaleType="fitXY"
+                        android:src="@drawable/home_area_benner_4_pic" />
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/ll_store_index"
@@ -152,23 +201,32 @@
                     android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:background="@drawable/home_area_benner_2"
-                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:id="@+id/transverse_2"
                         android:layout_width="0dp"
-                        android:layout_height="130dp" />
+                        android:layout_height="130dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/home_area_benner_2" />
+
                     <ImageView
-                        android:layout_marginRight="20dp"
+                        android:scaleType="fitXY"
+                        android:id="@+id/transverse_3"
+                        android:layout_width="0dp"
+                        android:layout_height="130dp"
                         android:layout_marginLeft="20dp"
-                        android:background="@drawable/home_area_benner_3"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="130dp" />
+                        android:src="@drawable/home_area_benner_3" />
+
                     <ImageView
-                        android:background="@drawable/home_area_benner_1"
-                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:id="@+id/transverse_4"
                         android:layout_width="0dp"
-                        android:layout_height="130dp" />
+                        android:layout_height="130dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/home_area_benner_1" />
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
@@ -227,11 +285,13 @@
 
                     <!--限时优惠-->
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
+                        android:id="@+id/recommend_1"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:background="@drawable/home_baner_single_pic"/>
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/home_baner_single_pic" />
                     <LinearLayout
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="15dp"
@@ -285,11 +345,13 @@
                     </LinearLayout>
                     <!--原生食材-->
                     <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
+                        android:id="@+id/recommend_2"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:background="@drawable/home_baner_single_pic"/>
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/home_baner_single_pic" />
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
@@ -342,12 +404,15 @@
                             android:background="@drawable/home_more_btn"
                             />
                     </LinearLayout>
-                    <ImageView
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:background="@drawable/home_baner_single_pic"/>
+
+                        <ImageView
+                            android:id="@+id/recommend_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/home_baner_single_pic" />
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="match_parent"

@@ -11,7 +11,7 @@
         android:color="#faf7f7">
     </stroke>
     <solid
-        android:color="#FF3B30">
+        android:color="#32d4190f">
     </solid>
     <padding
         android:left="3dp"

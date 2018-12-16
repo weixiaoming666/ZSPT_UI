@@ -18,7 +18,7 @@
             android:layout_width="43dp"
             android:layout_height="10dp"
             android:scaleType="fitXY"
-            android:src="@drawable/home_commodity_logo_1_ic"/>
+            android:src="@drawable/home_commodity_logo_2_ic"/>
     </FrameLayout>
 
     <LinearLayout
@@ -71,6 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lines="1"
+                android:textColor="@color/red"
                 android:text="秒杀"/>
             <View
                 android:layout_weight="1"

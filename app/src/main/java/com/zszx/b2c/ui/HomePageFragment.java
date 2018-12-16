@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.RequestParams;
 import com.youth.banner.Banner;
@@ -70,12 +71,19 @@ public class HomePageFragment extends BaseFragment {
     private MyGradView gv_xsyh;
     private SearchView sv;//搜索框
     private ImageView  iv_location;//定位按钮
+
     private TextView   tv_location;//定位地址
     private int          TO_LOCATION = 88;
     private LinearLayout ll_store;
     private LinearLayout ll_store_index;
     private Context mContext;
-
+    private ImageView  transverse_1;//通栏
+    private ImageView  transverse_2;//
+    private ImageView  transverse_3;//
+    private ImageView  transverse_4;//
+    private ImageView  recommend_1;//
+    private ImageView  recommend_2;//
+    private ImageView  recommend_3;//
     public List<HomeEntity.DataBean.BannerBean> bannerBeans;//新闻咨询
     public List<HomeEntity.DataBean.NewsBean> news;//新闻咨询
     public List<HomeEntity.DataBean.TransverseBean> transverse;// 通栏
@@ -127,6 +135,16 @@ public class HomePageFragment extends BaseFragment {
         hotproject = data.hotproject;//热卖
         promotion = data.promotion;//优惠
         newproject = data.newproject;//新品
+        //新品
+        Glide.with(context).load(ConstantUtils.base_url_host+data.recommend.get(0).image).into(recommend_1);
+        Glide.with(context).load(ConstantUtils.base_url_host+data.recommend.get(1).image).into(recommend_2);
+        Glide.with(context).load(ConstantUtils.base_url_host+data.recommend.get(2).image).into(recommend_3);
+        Glide.with(context).load(ConstantUtils.base_url_host+data.transverse.get(0).image).into(transverse_1);
+        Glide.with(context).load(ConstantUtils.base_url_host+data.transverse.get(1).image).into(transverse_2);
+        Glide.with(context).load(ConstantUtils.base_url_host+data.transverse.get(2).image).into(transverse_3);
+        Glide.with(context).load(ConstantUtils.base_url_host+data.transverse.get(3).image).into(transverse_4);
+
+
         initBinner();
     }
 
@@ -148,7 +166,7 @@ public class HomePageFragment extends BaseFragment {
     private void bindView(View view) {
         banner = (Banner) view.findViewById(R.id.banner);
         gv = view.findViewById(R.id.gv);
-        banner_title = (Banner) view.findViewById(R.id.banner_title);
+//        banner_title = (Banner) view.findViewById(R.id.banner_title);
         ll_news = (LinearLayout) view.findViewById(R.id.ll_news);
         mlv_rm = view.findViewById(R.id.mlv_rm);
         mlv_ts = view.findViewById(R.id.mlv_ts);
@@ -171,6 +189,14 @@ public class HomePageFragment extends BaseFragment {
         });
         iv_location = view.findViewById(R.id.iv_location);
         tv_location = view.findViewById(R.id.tv_location);
+        transverse_1 = view.findViewById(R.id.transverse_1);
+        transverse_2 = view.findViewById(R.id.transverse_2);
+        transverse_3 = view.findViewById(R.id.transverse_3);
+        transverse_4 = view.findViewById(R.id.transverse_4);
+        recommend_1 = view.findViewById(R.id.recommend_1);
+        recommend_2 = view.findViewById(R.id.recommend_2);
+        recommend_3 = view.findViewById(R.id.recommend_3);
+
         sv.setIconifiedByDefault(false);
         sv.setSubmitButtonEnabled(true);
 //        sv.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
@@ -209,7 +235,7 @@ public class HomePageFragment extends BaseFragment {
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         //设置图片集合
-        banner.setBannerStyle(BannerConfig.NUM_INDICATOR);
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR|BannerConfig.CENTER);
         images_banner.clear();
         for (int i = 0; i <bannerBeans.size() ; i++) {
             images_banner.add( ConstantUtils.base_url_host+bannerBeans.get(i).image);
@@ -228,33 +254,33 @@ public class HomePageFragment extends BaseFragment {
         banner.setIndicatorGravity(BannerConfig.CENTER);
         //banner设置方法全部调用完毕时最后调用
         banner.start();
-        news_title_banner.clear();
-        for (int i = 0; i <news.size() ; i++) {
-            news_title_banner.add(news.get(i).name);
-        }
-        news_image_banner.clear();
-        for (int i = 0; i <news.size() ; i++) {
-            news_image_banner.add(R.drawable.bg_white);
-        }
-        banner_title.setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE);
-        banner_title.setImageLoader(new GlideImageLoader());
-        banner_title.setBannerAnimation(com.youth.banner.Transformer.DepthPage);
-        banner_title.isAutoPlay(true);
-        banner_title.setDelayTime(1500);
-        banner_title.setIndicatorGravity(BannerConfig.RIGHT);
-        banner_title.setImages(news_image_banner);
-        banner_title.setBannerTitles(news_title_banner);
-        banner_title.start();
-        banner_title.setOnBannerListener(new OnBannerListener() {
-            @Override
-            public void OnBannerClick(int position) {
-                ToastUtil.showShort(getActivity(),"新闻7-"+position);
-                startActivity(new Intent(getActivity(), NewShowListActivity.class));
-            }
-        });
+//        news_title_banner.clear();
+//        for (int i = 0; i <news.size() ; i++) {
+//            news_title_banner.add(news.get(i).name);
+//        }
+//        news_image_banner.clear();
+//        for (int i = 0; i <news.size() ; i++) {
+//            news_image_banner.add(R.drawable.bg_white);
+//        }
+//        banner_title.setBannerStyle(BannerConfig.NUM_INDICATOR_TITLE);
+//        banner_title.setImageLoader(new GlideImageLoader());
+//        banner_title.setBannerAnimation(com.youth.banner.Transformer.DepthPage);
+//        banner_title.isAutoPlay(true);
+//        banner_title.setDelayTime(1500);
+//        banner_title.setIndicatorGravity(BannerConfig.RIGHT);
+//        banner_title.setImages(news_image_banner);
+//        banner_title.setBannerTitles(news_title_banner);
+//        banner_title.start();
+//        banner_title.setOnBannerListener(new OnBannerListener() {
+//            @Override
+//            public void OnBannerClick(int position) {
+//                ToastUtil.showShort(getActivity(),"新闻7-"+position);
+//                startActivity(new Intent(getActivity(), NewShowListActivity.class));
+//            }
+//        });
         gv.setAdapter(new GVadapter(Arrays.asList(names_gv), Arrays.asList(imgs_gv),context));
         mlv_rm.setAdapter(new FoodBuyShowAdapter(context,hotproject));//热卖
-        mlv_ts.setAdapter(new SpecialAdapter(context));
+        mlv_ts.setAdapter(new SpecialAdapter(context,shop));
         gv_xsyh.setAdapter(new FoodDiscountsAdapter(context,promotion));//限时优惠
         gv_xpsj.setAdapter(new XinpinFoodAdapter(context,newproject));
 

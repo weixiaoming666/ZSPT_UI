@@ -123,6 +123,7 @@ public class HomeEntity {
             public String black_image;
             public String log_image;
             public String state_text;
+            public String collection_count;
             public List<PrjectBean> prject;
 
             public static class PrjectBean {

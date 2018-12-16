@@ -59,7 +59,7 @@ public class MainActivity  extends AppCompatActivity {
         fragAdapter = new FragmentAdapter(getSupportFragmentManager(), list);
         vp.setAdapter(fragAdapter);
         vp.setCurrentItem(0);
-        showRedpop();
+//        showRedpop();//红包弹出页面
     }
 
     private void showRedpop() {

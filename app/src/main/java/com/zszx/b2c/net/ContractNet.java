@@ -39,6 +39,13 @@ public enum   ContractNet{
     public void home_index(RequestParams params, MyCallBack callBack, Context context){
         net(params, ConstantUtils.home_index, HttpRequest.HttpMethod.POST,callBack,context);
     }
+
+    /**
+     *  获取首页信息 /api/index/index
+     * */
+    public void home_projectCategory(RequestParams params, MyCallBack callBack, Context context){
+        net(params, ConstantUtils.home_projectCategory, HttpRequest.HttpMethod.POST,callBack,context);
+    }
     /**
      *   上传文件
      * */

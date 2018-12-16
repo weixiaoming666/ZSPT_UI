@@ -51,6 +51,7 @@ public class SpecialAdapter extends MyBaseAdapter {
             Glide.with(context).load(ConstantUtils.base_url_host+datas.get(i).black_image).into(  holder.iv_home_store_bg);
             Glide.with(context).load(ConstantUtils.base_url_host+datas.get(i).log_image).into(  holder.iv_icon);
             holder.tv_name.setText(datas.get(i).name+"");
+            holder.tv_num_select.setText(datas.get(i).collection_count+"人收藏");
             if (datas.get(i).prject!=null){
                 Glide.with(context).load(ConstantUtils.base_url_host+datas.get(i).prject.get(0).image).into(  holder.iv_item_1);
                 Glide.with(context).load(ConstantUtils.base_url_host+datas.get(i).prject.get(1).image).into(  holder.iv_item_2);
