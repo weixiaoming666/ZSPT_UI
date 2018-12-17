@@ -17,6 +17,14 @@ public class ConstantUtils{
         //   获取首页分类数据  /api/project/projectCategory POST
         public static String home_projectCategory            = base_url_host + "/api/project/projectCategory";
 
+        //   获取首页搜索历史数据  /api/index/hotSearch GET
+        public static String hotSearch            = base_url_host + "/api/index/hotSearch";
+
+        //   老店首页  /api/shop/oldshop POST
+        public static String oldshop            = base_url_host + "/api/shop/oldshop";
+    //   老店首页  /api/index/search POST
+        public static String search            = base_url_host + "/api/index/search";
+
 
 
 //        会员中心

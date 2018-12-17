@@ -47,6 +47,24 @@ public enum   ContractNet{
         net(params, ConstantUtils.home_projectCategory, HttpRequest.HttpMethod.POST,callBack,context);
     }
     /**
+     *  热搜历史 /api/index/index
+     * */
+    public void hotSearch(RequestParams params, MyCallBack callBack, Context context){
+        net(params, ConstantUtils.hotSearch, HttpRequest.HttpMethod.GET,callBack,context);
+    }
+    /**
+     *  热搜历史 /api/index/index
+     * */
+    public void oldshop(RequestParams params, MyCallBack callBack, Context context){
+        net(params, ConstantUtils.oldshop, HttpRequest.HttpMethod.POST,callBack,context);
+    }
+    /**
+     *  首页搜索
+     * */
+    public void search(RequestParams params, MyCallBack callBack, Context context){
+        net(params, ConstantUtils.search, HttpRequest.HttpMethod.POST,callBack,context);
+    }
+    /**
      *   上传文件
      * */
     public void postFile(List<File> files, String url, Map map, final Context context, PostFileSuccess fileSuccess){

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ import java.util.List;
 public class ClassifyFragment extends BaseFragment {
     View view;
     private SearchView      sv;
+    private LinearLayout    ll_search;
     private List<Fragment>  list;
     private FragmentAdapter fragAdapter;
     private ViewPager       vp;
@@ -57,7 +59,7 @@ public class ClassifyFragment extends BaseFragment {
 //    private RadioButton     rb_7;
 //    private RadioButton     rb_8;
 //    private RadioButton     rb_9;
-    private MyListview     mlv;
+    private MyListview      mlv;
     private Context          mContext;
     private TitleMainAdapter          mAdapter;
     @Nullable
@@ -205,7 +207,8 @@ public class ClassifyFragment extends BaseFragment {
     }
 
     private void bindView(View view) {
-        sv = view.findViewById(R.id.sv);
+//        sv = view.findViewById(R.id.sv);
+        ll_search = view.findViewById(R.id.ll_search);
         vp = view.findViewById(R.id.vp);
 //        rg = (RadioGroup) view.findViewById(R.id.rg);
 //        rb_0 = (RadioButton) view.findViewById(R.id.rb_0);
@@ -220,25 +223,31 @@ public class ClassifyFragment extends BaseFragment {
 //        rb_9 = (RadioButton) view.findViewById(R.id.rb_9);
         mlv =  view.findViewById(R.id.mlv);
         //获取到TextView的ID
-        int id = sv.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
-        //获取到TextView的控件
-        SearchView.SearchAutoComplete textView =  sv.findViewById(R.id.search_src_text);
-        //设置字体大小为14sp
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);//14sp
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(),SearchActivity.class));
-            }
-        });
-        sv.setIconifiedByDefault(false);
-        sv.setSubmitButtonEnabled(true);
+//        int id = sv.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
+//        //获取到TextView的控件
+//        SearchView.SearchAutoComplete textView =  sv.findViewById(R.id.search_src_text);
+//        //设置字体大小为14sp
+//        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);//14sp
+//        textView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(),SearchActivity.class));
+//            }
+//        });
+//        sv.setIconifiedByDefault(false);
+//        sv.setSubmitButtonEnabled(true);
 //       sv.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
 //           @Override
 //           public void onFocusChange(View v, boolean hasFocus) {
 //               startActivity(new Intent(getActivity(),SearchActivity.class));
 //           }
 //       });
+        ll_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),SearchActivity.class));
+            }
+        });
 
     }
 

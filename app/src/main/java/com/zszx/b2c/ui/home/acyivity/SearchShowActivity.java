@@ -12,10 +12,17 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
 import com.zszx.b2c.R;
+import com.zszx.b2c.entity.home.HotSearchEntity;
+import com.zszx.b2c.net.ContractNet;
+import com.zszx.b2c.net.MyCallBack;
 import com.zszx.b2c.ui.home.adapter.FoodBuyShowAdapter;
 import com.zszx.b2c.ui.home.adapter.FoodConsultAdapter;
 import com.zszx.b2c.ui.home.adapter.SpecialAdapter;
+import com.zszx.b2c.utils.SpUtill;
+import com.zszx.b2c.utils.ToastUtil;
 import com.zszx.b2c.view.MyGradView;
 
 public class SearchShowActivity extends AppCompatActivity {
@@ -43,9 +50,24 @@ public class SearchShowActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setStatusBarColor(getColor(R.color.calendar_selected_day_bg2));
         }
-
+        net();
     }
 
+    private void net() {
+
+        RequestParams params = new RequestParams();
+        params.addQueryStringParameter("user_id", SpUtill.getInstance(mContext).getString(SpUtill.USER_ID,""));
+        ContractNet.INSTANCE.hotSearch(params, new MyCallBack<HotSearchEntity>() {
+            @Override
+            public void onMySucess(HotSearchEntity entity) {
+                initData(entity);
+            }
+            @Override
+            public void onMyFail(HttpException e, String s) {
+                ToastUtil.showShort(mContext,s);
+            }
+        },mContext);
+    }
 
 
     // End Of Content View Elements

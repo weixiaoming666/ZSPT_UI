@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:background="@drawable/shape_search_item"
+    android:layout_height="50dp">
+    <ImageView
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/search_bar_icon_normal"/>
+    <TextView
+        android:id="@+id/tv_search_name"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="稻香村糕点礼盒"/>
+    <ImageView
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/go_jump"
+        />
+</LinearLayout>

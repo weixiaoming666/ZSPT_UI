@@ -70,6 +70,7 @@ public class HomePageFragment extends BaseFragment {
     private MyGradView gv_xpsj;
     private MyGradView gv_xsyh;
     private SearchView sv;//搜索框
+    private LinearLayout ll_search;//搜索框
     private ImageView  iv_location;//定位按钮
 
     private TextView   tv_location;//定位地址
@@ -174,14 +175,21 @@ public class HomePageFragment extends BaseFragment {
         gv_xsyh = view.findViewById(R.id.gv_xsyh);
         ll_store_index = view.findViewById(R.id.ll_store_index);//店铺6-5
         ll_store = view.findViewById(R.id.ll_store);//店铺6-1
-        sv = view.findViewById(R.id.sv);
-        //获取到TextView的ID
-        int id = sv.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
-    //获取到TextView的控件
-        SearchView.SearchAutoComplete textView =  sv.findViewById(R.id.search_src_text);
-    //设置字体大小为14sp
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);//14sp
-        textView.setOnClickListener(new View.OnClickListener() {
+//        sv = view.findViewById(R.id.sv);
+        ll_search = view.findViewById(R.id.ll_search);
+//        //获取到TextView的ID
+//        int id = sv.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
+//    //获取到TextView的控件
+//        SearchView.SearchAutoComplete textView =  sv.findViewById(R.id.search_src_text);
+//    //设置字体大小为14sp
+//        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);//14sp
+//        textView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(),SearchActivity.class));
+//            }
+//        });
+        ll_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(),SearchActivity.class));
@@ -196,9 +204,9 @@ public class HomePageFragment extends BaseFragment {
         recommend_1 = view.findViewById(R.id.recommend_1);
         recommend_2 = view.findViewById(R.id.recommend_2);
         recommend_3 = view.findViewById(R.id.recommend_3);
-
-        sv.setIconifiedByDefault(false);
-        sv.setSubmitButtonEnabled(true);
+//
+//        sv.setIconifiedByDefault(false);
+//        sv.setSubmitButtonEnabled(true);
 //        sv.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
 //           @Override
 //           public void onFocusChange(View v, boolean hasFocus) {

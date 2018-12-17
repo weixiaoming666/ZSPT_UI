@@ -19,6 +19,7 @@ public class SpUtill {
     public static final String MOBILE = "mobile";
     public static final String SCORE = "score";
     public static final String TOKEN = "token";
+    public static final String AVATAR = "avatar";
 
 
     private static SharedPreferences sp;

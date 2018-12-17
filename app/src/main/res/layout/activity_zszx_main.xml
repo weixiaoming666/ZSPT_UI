@@ -32,13 +32,18 @@
             android:padding="5dp"
             android:textColor="@color/font_white"
             android:text="北京" />
-
-        <android.support.v7.widget.SearchView
-            android:id="@+id/sv"
-            app:queryHint="稻香村糕点礼盒"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"></android.support.v7.widget.SearchView>
+        <include layout="@layout/search"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/ll_search"
+            android:layout_width="match_parent"
+            android:layout_height="35dp" />
+        <!--<android.support.v7.widget.SearchView-->
+            <!--android:id="@+id/sv"-->
+            <!--app:queryHint="稻香村糕点礼盒"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"></android.support.v7.widget.SearchView>-->
 
         <FrameLayout
             android:layout_width="wrap_content"

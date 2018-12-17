@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -15,12 +16,14 @@ import com.bumptech.glide.request.RequestOptions;
 
 import com.zszx.b2c.R;
 import com.zszx.b2c.base.BaseFragment;
+import com.zszx.b2c.net.ConstantUtils;
 import com.zszx.b2c.ui.home.adapter.FoodBuyShowAdapter;
 import com.zszx.b2c.ui.home.adapter.FoodDiscountsAdapter;
 import com.zszx.b2c.ui.mine.CouponActivity;
 import com.zszx.b2c.ui.mine.IntegralActivity;
 import com.zszx.b2c.ui.mine.OrderStateActivity;
 import com.zszx.b2c.ui.mine.SetActivity;
+import com.zszx.b2c.utils.SpUtill;
 import com.zszx.b2c.utils.ToastUtil;
 import com.zszx.b2c.view.MyGradView;
 
@@ -32,7 +35,7 @@ public class MineFragment extends BaseFragment {
     private LinearLayout ll_jifen;
     private LinearLayout ll_youhuijuan;
 
-    private FrameLayout ll_base_title;
+    private FrameLayout  ll_base_title;
     private LinearLayout ll_more;
     private LinearLayout ll_wait_pay;
     private LinearLayout ll_wait_send;
@@ -43,6 +46,7 @@ public class MineFragment extends BaseFragment {
     private LinearLayout ll_collect_store;
     private LinearLayout ll_collect_zixun;
     private LinearLayout ll_collect_zuji;
+    private TextView     tv_score;
 
 
 
@@ -66,7 +70,7 @@ public class MineFragment extends BaseFragment {
                 .diskCacheStrategy(DiskCacheStrategy.NONE)//不做磁盘缓存
                 .skipMemoryCache(true);//不做内存缓存
         Glide.with(this)
-                .load(R.mipmap.zhanwei_classfy_food)
+                .load(ConstantUtils.base_url_host+SpUtill.getInstance(getActivity()).getString(SpUtill.AVATAR,""))
                 .apply(mRequestOptions)
                 .into(iv);
 
@@ -188,6 +192,8 @@ public class MineFragment extends BaseFragment {
         ll_collect_store = (LinearLayout) view.findViewById(R.id.ll_collect_store);
         ll_collect_zixun = (LinearLayout) view.findViewById(R.id.ll_collect_zixun);
         ll_collect_zuji = (LinearLayout) view.findViewById(R.id.ll_collect_zuji);
+        tv_score = view.findViewById(R.id.tv_score);
+        tv_score.setText(SpUtill.getInstance(getActivity()).getString(SpUtill.SCORE,"0"));
         gv = (com.zszx.b2c.view.MyGradView) view.findViewById(R.id.gv);
     }
 

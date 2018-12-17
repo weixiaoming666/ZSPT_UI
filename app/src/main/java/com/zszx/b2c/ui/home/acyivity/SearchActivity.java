@@ -17,13 +17,26 @@ import android.widget.EditText;
 import android.widget.GridView;
 
 
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
 import com.zszx.b2c.R;
 import com.zszx.b2c.base.MyBaseAdapter;
+import com.zszx.b2c.entity.classify.ClassTitleBean;
+import com.zszx.b2c.entity.home.HotSearchEntity;
+import com.zszx.b2c.net.ContractNet;
+import com.zszx.b2c.net.MyCallBack;
+import com.zszx.b2c.utils.SpUtill;
 import com.zszx.b2c.utils.ToastUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
     private GridView gv_history,gv_hot;
     private LayoutInflater mInflater;
+    private Context        mContext;
+    private   List<String>   host = new ArrayList<>();
+    private   List<String>   history = new ArrayList<>();
     @RequiresApi(api = Build.VERSION_CODES.M)
     @SuppressLint("ResourceAsColor")
     @Override
@@ -31,20 +44,50 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         mInflater = LayoutInflater.from(this);
+        mContext = this;
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setStatusBarColor(getColor(R.color.calendar_selected_day_bg2));
         }
         bindView();
-        initData();
+        net();
+
     }
 
-    private void initData() {
+    private void net() {
+
+        RequestParams params = new RequestParams();
+        params.addQueryStringParameter("user_id", SpUtill.getInstance(mContext).getString(SpUtill.USER_ID,""));
+        ContractNet.INSTANCE.hotSearch(params, new MyCallBack<HotSearchEntity>() {
+            @Override
+            public void onMySucess(HotSearchEntity entity) {
+                initData(entity);
+            }
+            @Override
+            public void onMyFail(HttpException e, String s) {
+                ToastUtil.showShort(mContext,s);
+            }
+        },mContext);
+
+
+    }
+
+    private void initData(HotSearchEntity entity) {
+
+        if (  entity.data.host!=null&&entity.data.host.size()>0){
+            host.clear();
+            host.addAll(entity.data.host) ;
+        }
+        if (  entity.data.history!=null&&entity.data.history.size()>0){
+            history.clear();
+            history.addAll(entity.data.history) ;
+        }
+
         gv_history.setAdapter(new MyBaseAdapter() {
             @Override
             public View getContenView(int i, View view, ViewGroup viewGroup) {
                 view = mInflater.inflate(R.layout.item_search,null);
                 Button button = (Button) view;
-                button.setText("历史搜索");
+                button.setText(history.get(i));
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -58,7 +101,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public int getNum() {
-                return 6;
+                return history.size();
             }
         });
         gv_hot.setAdapter(new MyBaseAdapter() {
@@ -66,7 +109,7 @@ public class SearchActivity extends AppCompatActivity {
             public View getContenView(int i, View view, ViewGroup viewGroup) {
                 view = mInflater.inflate(R.layout.item_search,null);
                 Button button = (Button) view;
-                button.setText("热门搜索");
+                button.setText(host.get(i));
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -78,7 +121,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public int getNum() {
-                return 8;
+                return host.size();
             }
         });
     }
@@ -88,6 +131,7 @@ public class SearchActivity extends AppCompatActivity {
         gv_hot = findViewById(R.id.gv_hot);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {

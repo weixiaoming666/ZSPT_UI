@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -78,17 +79,17 @@ public class LoginActivity extends AppCompatActivity {
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,MainActivity.class));
-//                if (TextUtils.isEmpty(et_phone.getText())){
-//                    Toast.makeText(LoginActivity.this,"请输入电话号码",Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                if (TextUtils.isEmpty(et_numnber.getText())){
-//                    Toast.makeText(LoginActivity.this,"请输入验证码",Toast.LENGTH_SHORT).show();
-//                    return;
-//                }else {
-//                    check();
-//                }
+//                startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                if (TextUtils.isEmpty(et_phone.getText())){
+                    Toast.makeText(LoginActivity.this,"请输入电话号码",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(et_numnber.getText())){
+                    Toast.makeText(LoginActivity.this,"请输入验证码",Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    check();
+                }
 
 
             }
@@ -155,11 +156,12 @@ public class LoginActivity extends AppCompatActivity {
                 dialog.dismiss();
                 if (successEntity.code== 1){
                     loginSuccessEntity.DataBean.UserinfoBean userinfo =  successEntity.data.userinfo;
-                    SpUtill.getInstance(mContext).save(SpUtill.USER_ID,userinfo.user_id);
+                    SpUtill.getInstance(mContext).save(SpUtill.USER_ID,userinfo.user_id+"");
                     SpUtill.getInstance(mContext).save(SpUtill.USER_NAME,userinfo.username);
                     SpUtill.getInstance(mContext).save(SpUtill.MOBILE,userinfo.mobile);
-                    SpUtill.getInstance(mContext).save(SpUtill.SCORE,userinfo.score);
+                    SpUtill.getInstance(mContext).save(SpUtill.SCORE,userinfo.score+"");
                     SpUtill.getInstance(mContext).save(SpUtill.TOKEN,userinfo.token);
+                    SpUtill.getInstance(mContext).save(SpUtill.AVATAR,userinfo.avatar);
                     startActivity(new Intent(LoginActivity.this,MainActivity.class));
                     Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
                     finish();

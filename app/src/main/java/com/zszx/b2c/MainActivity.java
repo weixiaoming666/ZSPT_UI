@@ -21,6 +21,7 @@ import com.zszx.b2c.ui.HomePageFragment;
 import com.zszx.b2c.ui.MineFragment;
 import com.zszx.b2c.ui.StoreFragment;
 import com.zszx.b2c.ui.home.adapter.FragmentAdapter;
+import com.zszx.b2c.utils.SpUtill;
 import com.zszx.b2c.view.RedPacketDialog;
 
 import java.util.ArrayList;
@@ -50,6 +51,8 @@ public class MainActivity  extends AppCompatActivity {
     }
 
     private void initData() {
+//        String id  =  SpUtill.getInstance(this).get(SpUtill.USER_ID,"");
+//        String tocken  =  SpUtill.getInstance(this).get(SpUtill.TOKEN,"");
         list = new ArrayList<Fragment>();
         list.add(new HomePageFragment());
         list.add(new ClassifyFragment());

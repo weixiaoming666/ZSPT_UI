@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
+            android:id="@+id/iv_back_top"
             android:layout_width="match_parent"
             android:layout_height="157dp"
             android:scaleType="fitXY"
@@ -27,18 +28,25 @@
             android:id="@+id/ll_base_title"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:transitionGroup="true"
             android:background="@android:color/transparent">
-
-            <android.support.v7.widget.SearchView
-                android:gravity="center"
-                android:layout_marginLeft="20dp"
+            <include layout="@layout/search"
                 android:layout_gravity="center"
-                android:id="@+id/sv"
-                app:queryHint="稻香村糕点礼盒"
-                android:background="@drawable/shape_white"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:layout_weight="1"></android.support.v7.widget.SearchView>
+                android:id="@+id/ll_search"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+            <!--<android.support.v7.widget.SearchView-->
+                <!--android:id="@+id/sv"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="@drawable/shape_white"-->
+                <!--android:gravity="center"-->
+                <!--app:queryHint="稻香村糕点礼盒"></android.support.v7.widget.SearchView>-->
 
 
         </LinearLayout>
@@ -57,113 +65,118 @@
                     android:orientation="vertical"
                     android:padding="5dp">
                     <!--内容-->
-                    <RadioGroup
-                        android:orientation="vertical"
-                        android:id="@+id/rg"
-                        android:gravity="center"
+                    <!--<RadioGroup-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:id="@+id/rg"-->
+                        <!--android:gravity="center"-->
+                        <!--android:layout_width="100dp"-->
+                        <!--android:layout_height="match_parent">-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_0"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:checked="true"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:textSize="14sp"-->
+                            <!--android:text="上海店"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_1"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:textSize="14sp"-->
+                            <!--android:text="上海店"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_2"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:textSize="14sp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="上海店"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_3"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:textSize="14sp"-->
+                            <!--android:text="上海店"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_4"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:textSize="14sp"-->
+                            <!--android:text="上海店"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_5"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:textSize="14sp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="上海店"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_6"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="上海店"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_7"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:textSize="14sp"-->
+                            <!--android:text="上海店"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_8"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:textSize="14sp"-->
+                            <!--android:text="上海店"/>-->
+                        <!--<RadioButton-->
+                            <!--android:id="@+id/rb_9"-->
+                            <!--android:background="@drawable/bg_select_store"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:button="@null"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:gravity="center"-->
+                            <!--android:textColor="@color/font_white"-->
+                            <!--android:textSize="14sp"-->
+                            <!--android:text="上海店"/>-->
+                    <!--</RadioGroup>-->
+                    <com.zszx.b2c.ui.MyListview
+                        android:id="@+id/mlv"
                         android:layout_width="100dp"
                         android:layout_height="match_parent">
-                        <RadioButton
-                            android:id="@+id/rb_0"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:checked="true"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:textColor="@color/font_white"
-                            android:textSize="14sp"
-                            android:text="上海店"/>
-                        <RadioButton
-                            android:id="@+id/rb_1"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:textColor="@color/font_white"
-                            android:textSize="14sp"
-                            android:text="上海店"/>
-                        <RadioButton
-                            android:id="@+id/rb_2"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:textColor="@color/font_white"
-                            android:textSize="14sp"
-                            android:gravity="center"
-                            android:text="上海店"/>
-                        <RadioButton
-                            android:id="@+id/rb_3"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:textColor="@color/font_white"
-                            android:textSize="14sp"
-                            android:text="上海店"/>
-                        <RadioButton
-                            android:id="@+id/rb_4"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:textColor="@color/font_white"
-                            android:textSize="14sp"
-                            android:text="上海店"/>
-                        <RadioButton
-                            android:id="@+id/rb_5"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:textColor="@color/font_white"
-                            android:textSize="14sp"
-                            android:gravity="center"
-                            android:text="上海店"/>
-                        <RadioButton
-                            android:id="@+id/rb_6"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:textColor="@color/font_white"
-                            android:gravity="center"
-                            android:text="上海店"/>
-                        <RadioButton
-                            android:id="@+id/rb_7"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:textColor="@color/font_white"
-                            android:textSize="14sp"
-                            android:text="上海店"/>
-                        <RadioButton
-                            android:id="@+id/rb_8"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:textColor="@color/font_white"
-                            android:textSize="14sp"
-                            android:text="上海店"/>
-                        <RadioButton
-                            android:id="@+id/rb_9"
-                            android:background="@drawable/bg_select_store"
-                            android:layout_width="match_parent"
-                            android:button="@null"
-                            android:layout_height="50dp"
-                            android:gravity="center"
-                            android:textColor="@color/font_white"
-                            android:textSize="14sp"
-                            android:text="上海店"/>
-                    </RadioGroup>
+                    </com.zszx.b2c.ui.MyListview>
                 </LinearLayout>
             </ScrollView>
             <LinearLayout
@@ -181,7 +194,8 @@
                     android:layout_width="wrap_content"
                     android:background="@drawable/stor_leibiao_beijing_yuansu_ic"
                     android:layout_height="44dp" />
-                <ImageView
+                <cn.jzvd.JzvdStd
+                    android:id="@+id/video"
                     android:padding="5dp"
                     android:layout_width="match_parent"
                     android:background="@color/font_black"
@@ -200,6 +214,7 @@
                             android:background="@drawable/stor_leibiao_quyu_wenzi_jieshao_bg"
                             android:layout_height="240dp">
                             <TextView
+                                android:id="@+id/tv_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="10dp"
                                 android:layout_margin="10dp"
@@ -215,59 +230,13 @@
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-                            <LinearLayout
-                                android:id="@+id/ll_store_1"
-                                android:padding="5dp"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:orientation="vertical"
+                            <com.zszx.b2c.view.MyGradView
+                                android:id="@+id/mgv_store"
+                                android:numColumns="2"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
-                                <FrameLayout
-                                    android:layout_width="123dp"
-                                    android:layout_height="87dp"
-                                    android:background="@drawable/home_store_bg">
-                                    <ImageView
-                                        android:layout_marginLeft="15dp"
-                                        android:layout_width="34dp"
-                                        android:layout_height="21dp"
-                                        android:scaleType="fitXY"
-                                        android:src="@drawable/home_store_logo_logo_ic"/>
-                                </FrameLayout>
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="北京全聚德旗舰店"
-                                    android:textColor="@color/font_black"
-                                    android:textSize="14sp"/>
+                            </com.zszx.b2c.view.MyGradView>
 
-                            </LinearLayout>
-                            <LinearLayout
-                                android:padding="5dp"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:orientation="vertical"
-                                android:layout_height="wrap_content">
-                                <FrameLayout
-                                    android:layout_width="123dp"
-                                    android:layout_height="87dp"
-                                    android:background="@drawable/home_store_bg">
-                                    <ImageView
-                                        android:layout_marginLeft="15dp"
-                                        android:layout_width="34dp"
-                                        android:layout_height="21dp"
-                                        android:scaleType="fitXY"
-                                        android:src="@drawable/home_store_logo_logo_ic"/>
-                                </FrameLayout>
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="北京全聚德旗舰店"
-                                    android:textColor="@color/font_black"
-                                    android:textSize="14sp"/>
-
-                            </LinearLayout>
 
                         </LinearLayout>
 
